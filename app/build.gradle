@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdkPreview "TiramisuPrivacySandbox"
+
+    defaultConfig {
+        applicationId "com.test.wear"
+        minSdkPreview "TiramisuPrivacySandbox"
+        targetSdkPreview "TiramisuPrivacySandbox"
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation("androidx.wear:wear:1.2.0")
+
+    // Add support for wearable specific inputs
+    implementation("androidx.wear:wear-input:1.1.0")
+    implementation("androidx.wear:wear-input-testing:1.1.0")
+
+    // Use to implement wear ongoing activities
+    implementation("androidx.wear:wear-ongoing:1.0.0")
+
+    // Use to implement support for interactions from the Wearables to Phones
+    implementation("androidx.wear:wear-phone-interactions:1.0.1")
+    // Use to implement support for interactions between the Wearables and Phones
+    implementation("androidx.wear:wear-remote-interactions:1.0.0")
+}
